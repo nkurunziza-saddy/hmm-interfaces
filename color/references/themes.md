@@ -124,7 +124,8 @@ Three attributes on `<html>`, set before first paint, and nothing else. It is th
 In Settings → Appearance, one card of settings rows (`layout`, settings rows):
 
 - **Theme**: each option is a swatch, the theme's page with a card and "Aa" in its text colour, so people choose by looking. System shows half light, half dark.
-- **Contrast** and **Density**: segmented controls (Soft, Standard, High; Compact, Comfortable).
+- **Contrast**, **Density** and **Corners**: segmented controls (Soft, Standard, High; Compact, Comfortable; None, Small, Default, Large, Full). Corners is set in `surfaces` (radius).
+- At High contrast, fields also take the 3:1 edge (`n7`) in place of the hairline.
 - **Accent**: a row of round swatches as radio buttons, the checked one ringed. Each has an accessible name ("Violet").
 - Each change applies at once, with no Save. *Why: a theme is judged on the real screen.*
 

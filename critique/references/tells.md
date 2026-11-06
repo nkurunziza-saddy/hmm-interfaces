@@ -30,7 +30,7 @@ Work down the table in order. The top entries account for most of the damage.
 | Floaty, unanchored | Elements not aligned to shared edges | Align to one left edge and a consistent inset |
 | Cheap | Mismatched radii, misalignment, default focus, layout shift, flicker | Match siblings; concentric radii; a `:focus-visible` ring; reserve space; delay spinners |
 | Heavy | Dark fills, thick borders, bold everywhere, big soft shadows | A ring plus a tight shadow; one weight step down; fewer filled elements |
-| Harsh or invisible 1px border | Trying to solve weight with colour | Keep the soft colour, or switch to a shadow ring; check 3:1 on input edges |
+| Harsh or invisible 1px border | Trying to solve weight with colour | Keep the soft colour, or switch to a shadow ring; check every field has a fill or a 3:1 edge |
 | Grey text looks dirty | Grey on a coloured surface | Tint secondary text from the surface's hue |
 | Laggy | Transitions on hover or selection in frequent lists; durations over 200ms | Instant hover; shorten the duration before changing the curve |
 | Jumpy | Weight change on hover, missing `tabular-nums`, content loading without reserved space | Colour instead of weight; tabular numbers; skeletons or fixed heights |

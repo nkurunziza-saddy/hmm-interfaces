@@ -43,7 +43,7 @@ Exact tokens are in [elevation.md](references/elevation.md#tokens). The rules be
 - **Keep `border: 1px solid transparent` under a shadow ring.** *Why: forced-colours mode removes shadows, and the border still draws an edge.*
 - **Images get a 1px inset outline**: `outline: 1px solid` black at 10% (white at 10% in dark), `outline-offset: -1px`. Never a tinted colour, which shows as a fringe. Skip logos and transparent artwork.
 - **Concentric radius.** Outer = inner + padding (+ border), up to 24px of padding. Past it, they are separate surfaces.
-- **Focus is a ring, never nothing.** `:focus-visible` shows a 2px accent outline at 2px offset. `outline: none` without a replacement is a bug. The ring takes no layout space.
+- **Focus is a ring, never nothing.** `:focus-visible` shows a 2px accent outline at 2px offset; fields take it flush, as a 2px accent edge with no gap. `outline: none` without a replacement is a bug. The ring takes no layout space.
 - **Disabled controls take no hover, press or scale.**
 - **Icons**: one set per surface, `currentColor`, outline by default and filled when active. Stroke tracks the neighbouring text weight, 1.5px at 400 up to 2px at 600.
 - **Blur-behind only on floating chrome.** Never on content, cards or tables.

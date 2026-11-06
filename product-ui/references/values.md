@@ -101,7 +101,8 @@ Never animate keyboard-initiated actions. *Why: they repeat hundreds of times, a
 - Contrast is measured against the surface directly behind the element:
   - Text under 24px (or 18.66px bold): 4.5:1.
   - Larger text: 3:1.
-  - A field's edge, a toggle track, or a meaningful icon: 3:1.
+  - A toggle track, a checkbox or radio edge, or a meaningful icon: 3:1.
+  - A text field is a rest-fill well with a hairline and a visible label; the 3:1 edge belongs to High contrast.
 - Never put grey text on a coloured background. Tint the secondary text from that hue instead.
 - Dark mode is its own palette, not an inversion. Surfaces rise by getting lighter, because shadows barely show on dark.
 - Set `color-scheme` on `<html>`. Choose one theme mechanism (a class or a media query), not both.

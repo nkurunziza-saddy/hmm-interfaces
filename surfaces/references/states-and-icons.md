@@ -63,7 +63,7 @@ Default: an outline.
 - It follows `border-radius` (Safari 16.4 and later), draws in forced-colours mode, takes no layout space and doesn't clash with the elevation ring in `box-shadow`.
 - Clipped by `overflow: hidden`? Draw it inset (`outline-offset: -2px`) or pad the scroller by ≥ 4px.
 - A box-shadow ring (`0 0 0 2px var(--surface), 0 0 0 4px var(--accent)`) is allowed where the element is drawn with `clip-path` or its outline can't follow its shape. Add `outline: 2px solid transparent` so forced-colours mode still draws it.
-- Inputs: focus shows the same ring. A border-colour change alone fails 3:1 in most themes.
+- **Fields** take the ring flush, not offset: the border turns the accent and a 1px accent shadow sits outside it, a 2px accent edge with no gap (`border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent)`). *Why: an offset ring around a bordered field draws two edges with a gap between them.* The 2px edge measures 4.9:1 on a light card and 3.7:1 on a dark one; a border-colour change alone measures 2.45:1 in dark, so the extra pixel is required.
 - Never `outline: none` without a `:focus-visible` replacement.
 - Never `:focus` for the ring. Mouse users see rings they didn't ask for.
 

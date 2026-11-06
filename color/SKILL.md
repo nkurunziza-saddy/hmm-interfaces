@@ -33,7 +33,7 @@ OKLCH, hue taken from the brand accent (a product with one fixed accent; when pe
 | n4 | Hover | 0.935 | 0.275 | |
 | n5 | Pressed, selected | 0.910 | 0.305 | |
 | n6 | Hairline: dividers, card ring (decorative, exempt) | 0.880 | 0.335 | at least 1.3:1 on n2 |
-| n7 | Control edge, toggle track, meaningful icon | 0.640 | 0.540 | at least 3:1 on n1 and n2 |
+| n7 | Toggle track, checkbox and radio edge, meaningful icon; field edge at High contrast | 0.640 | 0.540 | at least 3:1 on n1 and n2 |
 | n8 | Secondary text, placeholder | 0.500 | 0.760 | at least 4.5:1 on n1–n5 |
 | n9 | Primary text; neutral solid fill | 0.220 | 0.950 | at least 7:1 on n1–n5 |
 
@@ -48,7 +48,7 @@ Never reach for n6 as a text colour or n8 as a background: a token is used only 
 - **Components use semantic tokens only.** `--color-accent-solid`, never `--blue-500`. Primitives are never referenced outside the token file. *Why: the token layer is the theming seam.*
 - **Name by purpose.** Neutral roles `--color-{bg|text|border}-{variant}`, accent and status roles `--color-{accent|danger|warning|success}-{subtle|border|solid|text}`. Use `accent`, not `primary`, for the brand, so `text-primary` stays unambiguous.
 - **Status roles are fixed**: danger red (hue 25), warning amber (75), success green (150). Info is neutral with an icon. Keep the accent at least 15° from each; see palette.md for the collision rule.
-- **Contrast.** Text under 24px (or 18.66px bold) 4.5:1, larger 3:1, field edges, toggle tracks and meaningful icons 3:1. Measure against the surface behind the element, never the page. Alpha colours are composited first.
+- **Contrast.** Text under 24px (or 18.66px bold) 4.5:1, larger 3:1, toggle tracks, checkbox and radio edges and meaningful icons 3:1. A text field is shown by its label, its fill and its edge together: by default a rest-fill well (n3) with a hairline (n6), and at High contrast the 3:1 edge (n7). *Why: a 3:1 line round every field is the loudest thing on a form; the label and the fill already say where to type.* Measure against the surface behind the element, never the page. Alpha colours are composited first.
 - **Grey text on a coloured surface is a bug.** Tint it from that surface's hue instead. *Why: grey on colour reads dirty.*
 - **A status icon or dot uses the status text step**, not the solid. *Why: the solid is tuned for a fill with text on it and misses 3:1 on the page for warning.*
 - **`color-scheme`** on `:root`, always. One theme mechanism: `light-dark()` tokens driven by `color-scheme`. Never a media query and a class both setting tokens.
@@ -59,7 +59,7 @@ Never reach for n6 as a text colour or n8 as a background: a token is used only 
 | Broken | Fixed | Why |
 | --- | --- | --- |
 | `color: #999` on white (2.85:1) | `color: var(--color-text-secondary)` at L 0.50 (5.7:1) | Secondary text is a step with a gate |
-| Input border `#e5e5e5` on white (1.3:1) | `border-color: var(--color-border-control)` at L 0.64 (3.2:1) | A field's edge must show where it is |
+| A white field with a `#e5e5e5` border on a white card | A rest-fill well (`n3`) with a hairline (`n6`), its label above; the `n7` edge at High contrast | The fill and the label show where it is; the edge stays quiet |
 | `background: var(--blue-500)` in a component | `background: var(--color-accent-solid)` | Primitives have no theming seam |
 | Grey label on a blue banner | `oklch(0.42 0.07 var(--banner-hue))` | Tinted text keeps the surface's hue |
 | Dark theme = light ramp reversed | Own palette: surfaces rise lighter, accent chroma × 0.85 | Shadows barely show on dark; neon accents glare |
@@ -75,7 +75,7 @@ Never reach for n6 as a text colour or n8 as a background: a token is used only 
 | `var(--blue-`, `var(--gray-`, or a hex/oklch literal in a component | Semantic token, or add the missing role |
 | A token used outside its job (border as text colour) | Add the right token |
 | Text on a coloured or alpha surface, never measured | `node scripts/contrast.mjs <fg> <bg> --over <surface>` |
-| Field or toggle edge under 3:1 | Use n7 |
+| A toggle, checkbox or radio edge under 3:1; a field with neither a fill nor a 3:1 edge | n7; give the field the rest fill |
 | Accent on a heading, icon row or more than one filled button | Neutral n9; one filled button |
 | Status shown by hue only | Add icon and label |
 | Dark tokens = light tokens reversed, or the same accent L and C | Rebuild per palette.md |

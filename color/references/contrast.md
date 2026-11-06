@@ -14,7 +14,8 @@
 | --- | --- |
 | Text under 24px (under 18.66px if bold) | 4.5:1 |
 | Larger text | 3:1 |
-| A field's edge, a toggle track, a meaningful icon | 3:1 |
+| A toggle track, a checkbox or radio edge, a meaningful icon | 3:1 |
+| A text field | a fill (n3) with a hairline and a visible label; a 3:1 edge (n7) at High contrast |
 | Dividers, the ring on a floating surface, disabled controls, logos | exempt |
 
 Placeholders and secondary text count as text. WCAG 2 is the number we report. When a pair is within 0.3 of the line, also look at it zoomed on a real screen.

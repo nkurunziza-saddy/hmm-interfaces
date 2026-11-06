@@ -73,7 +73,7 @@ In dark mode, a control at rest inside an overlay (chips, keycaps, segmented tra
 | --- | --- | --- |
 | Lifting a surface off what's behind it (card, menu, popover, dialog, toast) | Shadow ring | The ring is part of the elevation recipe and costs no layout |
 | Separating rows, sections or regions (dividers, table rules) | Border | A divider is structure; a shadow there reads as a gap |
-| Showing where a field is (input, select, textarea) | Border, 3:1 against its surround | A field needs a firm edge in every theme |
+| Showing where a field is (input, select, textarea) | Rest fill with a hairline border; a 3:1 border at High contrast | The fill and the label carry it; a firm line round every field is the loudest thing on a form |
 | Table cells and grid lines | Border | Cells are structure |
 | Selected state | Border or inset ring in the accent | The selection must be unambiguous |
 | An image's edge | Inset outline (below) | A border would change its size |
@@ -101,12 +101,31 @@ A small scale. Pick by the element's role, not its size.
 | Token | px | For |
 | --- | --- | --- |
 | `--radius-xs` | 4 | Checkbox, key chips, items inside a menu |
-| `--radius-sm` | 6 | Buttons, inputs, selects, rows, tooltips |
+| `--radius-sm` | 6 | Rows, nav items, tooltips |
+| `--radius-control` | 6 | Buttons, inputs, selects, segmented controls |
 | `--radius-md` | 8 | Cards, tables, menus, popovers, panels |
 | `--radius-lg` | 12 | Dialogs, sheets, large feature cards |
-| `--radius-full` | 9999px | Avatars, switch tracks, dots, counts, pills only when the design calls for pills |
+| `--radius-pill` | 9999px | Chips, labels, badges, counts, view tabs |
+| `--radius-full` | 9999px | Circles at every setting: avatars, radios, switch tracks, dots |
 
-Larger object, larger radius. Buttons and chips use the token; a pill is a choice, not a default.
+Larger object, larger radius. **Tags are pills, actions are rounded rectangles:** chips, labels, badges and view tabs take `--radius-pill`; buttons and fields take `--radius-control`. *Why: the shape says what kind of thing it is, a tag to read or a control to press (Linear draws its labels and view tabs as pills and its buttons at 8px).*
+
+### The Corners setting
+
+An app with an Appearance page may offer Corners beside theme and density (`color`, themes.md), one attribute, `data-corners`, that moves every token at once:
+
+| Token | None | Small | Default | Large | Full |
+| --- | --- | --- | --- | --- | --- |
+| `--radius-xs` | 0 | 2 | 4 | 8 | 12 |
+| `--radius-sm` | 0 | 4 | 6 | 8 | 10 |
+| `--radius-control` | 0 | 4 | 6 | 8 | 9999px |
+| `--radius-md` | 0 | 6 | 8 | 12 | 16 |
+| `--radius-lg` | 0 | 8 | 12 | 16 | 20 |
+| `--radius-pill` | 0 | 9999px | 9999px | 9999px | 9999px |
+
+- **None** squares everything, pills included. **Full** turns buttons and fields into pills too. Circles (`--radius-full`) never change: an avatar stays round at None.
+- `--radius-xs` is always `--radius-md` minus the 4px menu padding, so menus stay concentric at every setting.
+- Write components against the tokens and derive inner radii with `calc(max(… - padding, 0px))`, never a number, or one setting breaks them.
 
 **Concentric radius: outer = inner + padding (+ border).** An inner shape sitting in the corner of an outer one (an image in a card, a tray around buttons, the first menu item, a header strip) follows this, so the gap between the curves stays even.
 
