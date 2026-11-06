@@ -77,7 +77,7 @@ Every accent sits at the **same lightness and the same chroma**: solid L 0.55, c
 | `violet` | 295 | 0.14 | 5.13 / 5.07 |
 | `plum` | 320 | 0.14 | 5.21 / 5.15 |
 
-- The roles follow palette.md's lightness steps and chroma multipliers, except the light-theme **subtle** fill at ×0.125 (not ×0.13): at L 0.96, blue and indigo can't hold more inside sRGB. Check any new hue with `node scripts/contrast.mjs --max-chroma <L> <H>` at every role.
+- The roles follow palette.md's lightness steps and chroma multipliers; its Cs is the same 0.14. Check any new hue with `node scripts/contrast.mjs --max-chroma <L> <H>` at every role.
 - **Why one chroma, not a share of each hue's maximum:** OKLCH chroma is already a perceptual measure of colourfulness. Taking 85% of each hue's limit gave Violet 0.24 and Teal 0.08, which read as two different strengths. One chroma looked like one family when compared side by side. (The oklch.fyi skill recommends the percentage method; it was compared live and rejected.)
 - **Not offered:** red, amber and green mean danger, warning and success. Teal and cyan can't reach 0.14 at L 0.55 and turn muddy. Pink and rose sit too close to danger.
 - **Ink** draws the primary action, selection and focus in the primary text step with the page colour on it, for people who want no hue at all.
