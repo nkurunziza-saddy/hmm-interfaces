@@ -1,6 +1,6 @@
 ---
 name: color
-description: Builds and checks colour systems for product UI on the web: the OKLCH neutral ramp and the job of each step, one accent, semantic tokens over primitives, status colours, contrast measured against the real surface, dark mode as its own palette, named themes (light, white, dark, dim, midnight) and a user-picked accent, color-scheme and a single theme mechanism, gradients, and generating a whole palette from one brand colour. Use it whenever you pick or change a colour, add a token, theme or dark mode, style a badge, banner, alert or status, fix "low contrast", "washed out", "muddy" or "grey on colour", or someone hands you a brand hex. Not for marketing or illustration palettes.
+description: Builds and checks colour systems for product UI on the web: the OKLCH neutral ramp and the job of each step, one accent, semantic tokens over primitives, status colours, contrast measured against the real surface, dark mode as its own palette, themes (light, dark, midnight) with a contrast setting and a user-picked accent, color-scheme and a single theme mechanism, gradients, and generating a whole palette from one brand colour. Use it whenever you pick or change a colour, add a token, theme or dark mode, style a badge, banner, alert or status, fix "low contrast", "washed out", "muddy" or "grey on colour", or someone hands you a brand hex. Not for marketing or illustration palettes.
 ---
 
 # Color
@@ -18,12 +18,12 @@ Before any decision, apply `product-ui` §1 (the taste journal and precedence) a
 5. **Tokens**: primitives name a value, semantics name a job, components use only semantics.
 6. **Contrast**: measure every text and edge pair against the surface directly behind it, in both themes. See [references/contrast.md](references/contrast.md).
 7. **Dark**: its own palette, not an inversion. See [references/dark-and-gradients.md](references/dark-and-gradients.md).
-8. **Themes and accent as a setting**, for an app people keep open for hours: System first, then up to five named ramps, and an accent the person picks, all from one formula. See [references/themes.md](references/themes.md).
+8. **Themes, contrast and accent as settings**, for an app people keep open for hours: System, Light, Dark and Midnight; Soft, Standard or High contrast; and an accent at one shared chroma. See [references/themes.md](references/themes.md).
 9. **Never colour alone**: every status has an icon, a label or a shape.
 
 ## The neutral ramp
 
-OKLCH, hue taken from the accent, chroma 0.004–0.015 (enough to measure, not enough to name). Each step has one job. Components are written against jobs, so a re-skin changes the ramp and nothing else.
+OKLCH, hue taken from the brand accent (a product with one fixed accent; when people pick the accent, each theme keeps its own grey hue, see themes.md), chroma 0.004–0.015 (enough to measure, not enough to name). Each step has one job. Components are written against jobs, so a re-skin changes the ramp and nothing else.
 
 | Step | Job | Light L | Dark L | Gate |
 | --- | --- | --- | --- | --- |
