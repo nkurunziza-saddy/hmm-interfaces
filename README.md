@@ -9,9 +9,9 @@ Not for marketing pages, posters or expressive work.
 | Skill | Owns |
 | --- | --- |
 | `product-ui` | The floor: decision order, restraint rules, the core values in `references/values.md`, and who owns what |
-| `layout` | Space, alignment, sizing, hit areas, shells, widths, responsiveness, settings rows |
+| `layout` | Space, alignment, sizing, hit areas, shells, widths, responsiveness, settings rows, Compact and Comfortable density |
 | `type` | Roles on a 13px base (1.125 ratio), line-height, weight, tracking, fonts, wrapping, truncation, numbers |
-| `color` | OKLCH neutral ramp, one accent, status colours, semantic tokens, contrast, dark mode |
+| `color` | OKLCH neutral ramp, one accent, status colours, semantic tokens, contrast, dark mode, named themes and a user-picked accent |
 | `surfaces` | Elevation levels, shadow or border, radius, states, focus ring, icons, materials |
 | `motion` | Whether and how anything moves: curves, durations, recipes, gestures, reduced motion |
 | `interaction` | Keyboard, overlays, forms, feedback, pointer and touch, URL state |

@@ -70,29 +70,29 @@ Do the optical step last, after the geometry is on the scale, and confirm it at 
 
 ## Density modes
 
-Two modes, switched by `data-density` on a region's root, never mixed inside one region. *Why: mixed row heights read as inconsistent sizing, not as hierarchy.*
+Two modes, switched by `data-density` on `<html>`, never mixed inside one screen. *Why: mixed row heights read as inconsistent sizing, not as hierarchy.* Comfortable is one step up, not a different product: everything grows by about 8/7, and the type moves to the 14px roles (`type`, comfortable density).
 
-| Token | Compact | Comfortable |
+| Token | Compact (default) | Comfortable |
 | --- | --- | --- |
-| `--control-h` | 28px | 40px |
-| `--row-h` | 28px | 44px |
-| `--pad-card` | 16px (`--space-lg`) | 24px (`--space-xl`) |
-| Gap within a group | 4px | 8px |
-| Gap between groups | 16px | 24px |
-| Hit area floor | 24px | 40px |
+| `--control-h` | 28px | 32px |
+| `--row-h` | 28px | 32px |
+| `--pad-card` | 16px (`--space-lg`) | 20px (`--space-20`) |
+| Gap within a group | 4px | 4px |
+| Gap between groups | 16px | 20px |
+| Hit area floor | 24px | 24px |
+| UI text | 13px / 18px | 14px / 20px |
 
 ```css
-[data-density="compact"]     { --control-h: 28px; --row-h: 28px; --pad-card: var(--space-lg); --gap-in: var(--space-xs); --gap-between: var(--space-lg); }
-[data-density="comfortable"] { --control-h: 40px; --row-h: 44px; --pad-card: var(--space-xl); --gap-in: var(--space-sm); --gap-between: var(--space-xl); }
+:root                         { --control-h: 28px; --row-h: 28px; --pad-card: var(--space-lg); --gap-in: var(--space-xs); --gap-between: var(--space-lg); }
+[data-density="comfortable"] { --control-h: 32px; --row-h: 32px; --pad-card: var(--space-20); --gap-between: var(--space-20); }
 @media (pointer: coarse) { :root { --control-h: 44px; --row-h: 48px; } }
 ```
 
-Choose by use, in this order:
-1. **Touch is the primary input.** Controls 44px, whatever the mode. Enlarge with `(pointer: coarse)`, never globally. *Why: a dense desktop tool stays dense on a touch laptop used with a mouse.*
-2. **Experts scan many rows all day** (tables, logs, inspectors, sidebars, trees). Compact.
-3. **Everything else** (settings, forms, onboarding, dashboards read now and then). Comfortable.
+1. **Compact is the default** for every product surface. *Why: it is a tool; the work, not the chrome, should take the room.*
+2. **Comfortable is the person's choice**, a setting in Appearance beside theme and accent (`color`, themes). It applies to the whole app, and it persists like the theme. *Why: people who read better a size up should not have to zoom the browser.*
+3. **Touch is the primary input:** controls 44px, whatever the mode. Enlarge with `(pointer: coarse)`, never globally. *Why: a dense desktop tool stays dense on a touch laptop used with a mouse.*
 
-Let users switch density on data views only. Row height equals line height plus 2× vertical padding; recompute it when the type scale changes.
+The space scale itself never changes with density; only these tokens and the type roles do. Row height equals line height plus 2× vertical padding; recompute it when the type scale changes.
 
 ## Hit areas
 

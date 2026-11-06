@@ -6,6 +6,7 @@
 - Tracking table
 - Heading levels
 - Dark-mode compensation
+- Comfortable density
 - Adopting an existing scale
 
 ## The ladder
@@ -84,6 +85,28 @@ Light text on a dark surface looks bolder and tighter because it glows into the 
 ```
 
 Scope these to the dark theme with the project's one theme mechanism (see `color`). Apply to Caption, UI and Body only. Title already has room. Weight stays the same. These two values are a starting point to be revisited in real use.
+
+## Comfortable density
+
+The same roles on the 14px ladder (14 × 1.125), for people who chose Comfortable (`layout`, density modes). The role classes read these tokens, so nothing else changes:
+
+```css
+:root {
+  --fs-caption: 0.75rem;   --lh-caption: calc(16 / 12); --ls-caption: 0;
+  --fs-ui: 0.8125rem;      --lh-ui: calc(18 / 13);      --ls-ui: -0.003em;
+  --fs-body: 0.9375rem;    --lh-body: calc(23 / 15);    --ls-body: -0.009em;
+  --fs-heading: 1rem;      --lh-heading: calc(21 / 16); --ls-heading: -0.011em;
+  --fs-title: 1.3125rem;   --lh-title: calc(28 / 21);   --ls-title: -0.018em;
+}
+[data-density="comfortable"] {
+  --fs-ui: 0.875rem;       --lh-ui: calc(20 / 14);      --ls-ui: -0.006em;
+  --fs-body: 1rem;         --lh-body: calc(24 / 16);    --ls-body: -0.011em;
+  --fs-heading: 1.125rem;  --lh-heading: calc(24 / 18); --ls-heading: -0.014em;
+  --fs-title: 1.375rem;    --lh-title: calc(30 / 22);   --ls-title: -0.018em;
+}
+```
+
+Caption stays 12px in both: it is the floor.
 
 ## Adopting an existing scale
 

@@ -31,6 +31,7 @@ App UI scale ratio is `1.125` from a 13px base, in fixed `rem`, never fluid. Ste
 | Heading | 16px / `1rem` | 21px | 600 | `-0.011em` | Section and card titles |
 | Title | 21px / `1.3125rem` | 28px | 600 | `-0.018em` | Page titles |
 
+- **Comfortable density** moves every role one step up the 14px ladder: Caption 12/16, UI 14/20 (`-0.006em`), Body 16/24 (`-0.011em`), Heading 18/24 (`-0.014em`), Title 22/30 (`-0.018em`). Weights stay. Set them as tokens that `[data-density="comfortable"]` redefines, so components never pick a size by density. Tokens in [references/scale.md](references/scale.md#comfortable-density).
 - Smallest size is 12px. *Why: small-text legibility below 12px depends on rendering we don't control; Apple's own floor is 11px.*
 - Emphasis is one weight step up in the same role (400 → 500), never a size bump. *Why: size changes the layout; weight within a family barely does.*
 - Other fonts: tracking values are for Inter. For another face, use its own table or `0`. Never stack hand tracking on `system-ui`, which already tracks itself.
