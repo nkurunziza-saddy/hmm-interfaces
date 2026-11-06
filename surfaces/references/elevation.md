@@ -102,28 +102,31 @@ A small scale. Pick by the element's role, not its size.
 | --- | --- | --- |
 | `--radius-xs` | 4 | Checkbox, key chips, items inside a menu |
 | `--radius-sm` | 6 | Rows, nav items, tooltips |
-| `--radius-control` | 6 | Buttons, inputs, selects, segmented controls |
+| `--radius-control` | 6 | Inputs, selects, segmented controls |
+| `--radius-button` | 6 | Buttons and icon buttons |
 | `--radius-md` | 8 | Cards, tables, menus, popovers, panels |
 | `--radius-lg` | 12 | Dialogs, sheets, large feature cards |
 | `--radius-pill` | 9999px | Chips, labels, badges, counts, view tabs |
 | `--radius-full` | 9999px | Circles at every setting: avatars, radios, switch tracks, dots |
 
-Larger object, larger radius. **Tags are pills, actions are rounded rectangles:** chips, labels, badges and view tabs take `--radius-pill`; buttons and fields take `--radius-control`. *Why: the shape says what kind of thing it is, a tag to read or a control to press (Linear draws its labels and view tabs as pills and its buttons at 8px).*
+Larger object, larger radius. **Tags are pills:** chips, labels, badges and view tabs take `--radius-pill` at every setting but Square. Buttons take `--radius-button` and fields `--radius-control`; they are rounded rectangles in every setting except Hybrid and Pill. *Why: the shape says what kind of thing it is, a tag to read or something to press or type into.*
 
 ### The Corners setting
 
-An app with an Appearance page may offer Corners beside theme and density (`color`, themes.md), one attribute, `data-corners`, that moves every token at once:
+An app with an Appearance page may offer Corners beside theme and density (`color`, themes.md), one attribute, `data-corners`, that moves every token at once. Five steps of one shape, and Hybrid, which combines two of them:
 
-| Token | None | Small | Default | Large | Full |
-| --- | --- | --- | --- | --- | --- |
-| `--radius-xs` | 0 | 2 | 4 | 8 | 12 |
-| `--radius-sm` | 0 | 4 | 6 | 8 | 10 |
-| `--radius-control` | 0 | 4 | 6 | 8 | 9999px |
-| `--radius-md` | 0 | 6 | 8 | 12 | 16 |
-| `--radius-lg` | 0 | 8 | 12 | 16 | 20 |
-| `--radius-pill` | 0 | 9999px | 9999px | 9999px | 9999px |
+| Token | Square | Subtle | Rounded (default) | Soft | Pill | Hybrid |
+| --- | --- | --- | --- | --- | --- | --- |
+| `--radius-xs` menu items | 0 | 2 | 4 | 8 | 12 | 8 |
+| `--radius-sm` rows, nav | 0 | 4 | 6 | 8 | 10 | 8 |
+| `--radius-control` fields | 0 | 4 | 6 | 8 | 9999px | 8 |
+| `--radius-button` buttons | 0 | 4 | 6 | 8 | 9999px | 9999px |
+| `--radius-md` cards, menus | 0 | 6 | 8 | 12 | 16 | 12 |
+| `--radius-lg` dialogs, insets | 0 | 8 | 12 | 16 | 20 | 12 |
+| `--radius-pill` tags | 0 | 9999px | 9999px | 9999px | 9999px | 9999px |
 
-- **None** squares everything, pills included. **Full** turns buttons and fields into pills too. Circles (`--radius-full`) never change: an avatar stays round at None.
+- **Square** squares everything, tags included. **Pill** makes every button and field a pill. Circles (`--radius-full`) never change: an avatar stays round at Square.
+- **Hybrid** is Linear's mix: everything you press is a pill (buttons, icon buttons, view tabs, tags), everything you type into or pick from is a soft rectangle (fields and selects at 8px), and surfaces sit at 12px. Measured in Linear on 2026-11-06: buttons and 28px icon buttons 9999px, view tabs 9999px, labels 48px, fields and selects 8px, nav rows and group headers 8px, setting cards 10px, menus and the content inset 12px, checkboxes 3px, avatars round.
 - `--radius-xs` is always `--radius-md` minus the 4px menu padding, so menus stay concentric at every setting.
 - Write components against the tokens and derive inner radii with `calc(max(… - padding, 0px))`, never a number, or one setting breaks them.
 
